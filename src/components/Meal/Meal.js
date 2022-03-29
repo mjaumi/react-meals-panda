@@ -1,7 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Meal = (props) => {
-    const { strMealThumb, strMeal, strCategory, strArea } = props.meal;
+    const { idMeal, strMealThumb, strMeal, strCategory, strArea } = props.meal;
+
+    //const navigate = useNavigate();
+
+    /* const showMealDetails = () => {
+        navigate(`/meal/${idMeal}`);
+    } */
 
     return (
         <div className='bg-meals-panda-extra-light p-5 rounded-3xl'>
@@ -16,7 +23,9 @@ const Meal = (props) => {
                 </div>
             </div>
             <div className='mt-7'>
-                <button className='bg-meals-panda-base text-white text-lg font-medium w-full py-4 rounded-xl hover:bg-meals-panda-light hover:text-meals-panda-base duration-300'>View Details</button>
+                <Link to={`/meal/${idMeal}`}>
+                    <button className='bg-meals-panda-base text-white text-lg font-medium w-full py-4 rounded-xl hover:bg-meals-panda-light hover:text-meals-panda-base duration-300'>View Details</button>
+                </Link>
             </div>
         </div>
     );
