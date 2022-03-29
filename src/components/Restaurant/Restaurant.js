@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Meal from '../Meal/Meal';
 
 const Restaurant = () => {
     const [searchText, setSearchText] = useState('');
@@ -20,6 +21,11 @@ const Restaurant = () => {
             <div>
                 <h1 className='text-6xl text-gray-400'>Search The <span className='text-meals-panda-base font-medium'>Meal</span> You Want</h1>
                 <input onChange={searchMeal} className='mt-10 border-2 border-meals-panda-light rounded-xl px-4 py-3 w-1/2 text-lg font-medium' type="text" placeholder='Search Your Food Here' />
+            </div>
+            <div className='my-10 grid grid-cols-3 gap-10 w-4/5 mx-auto'>
+                {
+                    meals.map(meal => <Meal key={meal.idMeal} meal={meal}></Meal>)
+                }
             </div>
         </section>
     );
